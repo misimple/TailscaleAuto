@@ -1,0 +1,16 @@
+/bin/
+/release/
+/tmp/
+**/settings.json
+*.exe
+*.zip
+*.sha256
+*.log
+*.tmp
+*.bak
+*.user
+*.pfx
+*.p12
+*.pem
+*.key
+.vs/
