@@ -17,17 +17,17 @@ It shows the latest probe result and latency, lets you copy a Tailscale IP, and 
 
 ![Tailscale Auto main window with sample devices](docs/main-window-en.png)
 
-The screenshot is captured from the actual 1.6.14.0 WinForms assembly using synthetic sample devices. The row shown as **Relay** uses a simulated DERP result; the UI groups DERP under Relay. It does not show a verified LAN RDP session.
+The screenshot is captured from the actual 1.6.14.0 WinForms assembly using synthetic sample devices. The row shown as **Relay** uses a simulated DERP result; the UI groups DERP under Relay. The screenshot is a UI example, not an RDP test record.
 
 ## Download and quick start
 
-After this preview is approved and published, download the Windows ZIP from [Releases](https://github.com/misimple/TailscaleAuto/releases/tag/v1.6.14.0-dev), verify its SHA-256, extract it, and run `TailscaleAuto.exe`. Install and sign in to the official Tailscale client first. To close the app completely, choose **Exit** from the tray menu. Right-click a device to edit its local display alias.
+Download the Windows ZIP from [Releases](https://github.com/misimple/TailscaleAuto/releases/tag/v1.6.14.0-dev), verify its SHA-256, extract it, and run `TailscaleAuto.exe`. Install and sign in to the official Tailscale client first. To close the app completely, choose **Exit** from the tray menu. Right-click a device to edit its local display alias.
 
 The app writes `settings.json` beside the EXE. Keep that file private. Connection path and latency are the most recent probe results, not continuous measurements. Starting Remote Desktop does not guarantee login.
 
 ## Requirements
 
-Windows 11 is the tested target; other Windows versions are not verified. The app requires the local Tailscale CLI, Windows `mstsc.exe`, and .NET Framework 4.x. LAN RDP additionally requires a verified physical LAN route to the peer and an open TCP 3389 port. The EXE is not signed by a trusted publisher.
+Windows 11 is the tested target; other Windows versions are not verified. The app requires the local Tailscale CLI, Windows `mstsc.exe`, and .NET Framework 4.x. LAN RDP additionally requires LAN connectivity through a verified physical route, Remote Desktop enabled on the target, and reachable TCP 3389. The EXE is not signed by a trusted publisher.
 
 ## Build from source
 
@@ -35,7 +35,7 @@ On Windows with the .NET Framework C# compiler, run `powershell -File .\build.ps
 
 ## Limitations and feedback
 
-This is a development preview. An earlier 1.4.2.1 implementation was exercised on two real devices, including both RDP routes. The 1.6.14.0 integration passed simulated checks but **has not been retested on a real two-device LAN**. In particular, physical route selection, TCP 3389, and both RDP sessions need acceptance testing with this build. Please report problems with a version number, Windows version, and reproduction steps; redact device names, Tailnet IPs, and logs, and never post `settings.json`.
+This is a development preview. The user reports successful Tailscale RDP and LAN RDP connections on multiple real Windows devices. Release-preparation automated and simulated integration checks passed. A separate, documented live acceptance run tied specifically to the 1.6.14.0-dev build is not available; the user report is not presented as that version-specific test. See the [acceptance status](docs/ACCEPTANCE_STATUS.md). Please report problems with a version number, Windows version, and reproduction steps; redact device names, Tailnet IPs, and logs, and never post `settings.json`.
 
 ## License and trademarks
 

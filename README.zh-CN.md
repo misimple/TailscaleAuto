@@ -17,17 +17,17 @@
 
 ![使用示例设备的 Tailscale Auto 主窗口](docs/main-window-zh-CN.png)
 
-截图由实际 1.6.14.0 WinForms 程序集运行取得，设备均为合成测试数据。显示为“中继”的设备使用模拟 DERP 结果，界面将 DERP 归为“中继”。截图不代表局域网 RDP 已完成新版双机验收。
+截图由实际 1.6.14.0 WinForms 程序集运行取得，设备均为合成测试数据。显示为“中继”的设备使用模拟 DERP 结果，界面将 DERP 归为“中继”。截图是界面示例，不作为 RDP 测试记录。
 
 ## 下载与快速开始
 
-待本预览版获批发布后，从 [Releases](https://github.com/misimple/TailscaleAuto/releases/tag/v1.6.14.0-dev) 下载 Windows ZIP、核对 SHA-256，解压并运行 `TailscaleAuto.exe`。请先安装并登录官方 Tailscale 客户端。彻底退出请使用托盘菜单的“退出程序”；右键设备可编辑本地显示别名。
+从 [Releases](https://github.com/misimple/TailscaleAuto/releases/tag/v1.6.14.0-dev) 下载 Windows ZIP、核对 SHA-256，解压并运行 `TailscaleAuto.exe`。请先安装并登录官方 Tailscale 客户端。彻底退出请使用托盘菜单的“退出程序”；右键设备可编辑本地显示别名。
 
 程序在 EXE 旁写入 `settings.json`，请勿公开。连接路径和延迟是最近一次探测结果，不是持续测速。启动远程桌面客户端不保证登录成功。
 
 ## 运行条件
 
-目前已测试的目标系统为 Windows 11，其他 Windows 版本尚未验证。需要本机 Tailscale CLI、Windows `mstsc.exe` 及 .NET Framework 4.x。局域网 RDP 还要求目标设备有经过确认的物理 LAN 直达路由，并开放 TCP 3389。EXE 尚无受信任代码签名。
+目前已测试的目标系统为 Windows 11，其他 Windows 版本尚未验证。需要本机 Tailscale CLI、Windows `mstsc.exe` 及 .NET Framework 4.x。局域网 RDP 还要求物理局域网路由连通、目标设备启用远程桌面服务，并且 TCP 3389 可达。EXE 尚无受信任代码签名。
 
 ## 从源码构建
 
@@ -35,7 +35,7 @@
 
 ## 限制与问题反馈
 
-当前为开发预览版。早期 1.4.2.1 实现曾在两台真实设备上验证两种 RDP 路径；1.6.14.0 的合并已通过模拟测试，但**尚未在真实双机局域网中重新验收**。物理路由选择、TCP 3389 以及两种 RDP 会话仍需用本次构建在目标网络验证。反馈问题时请提供版本、Windows 版本及复现步骤，并对设备名、Tailnet IP 和日志脱敏；不要上传 `settings.json`。
+当前为开发预览版。用户反馈 Tailscale RDP 和局域网 RDP 均已在多台真实 Windows 设备上成功连接。发布准备阶段的自动化与模拟集成检查已通过。尚无单独留档、能明确对应 `1.6.14.0-dev` 构建的真实环境验收记录；用户反馈不等同于该版本的独立测试。详见[验收状态记录](docs/ACCEPTANCE_STATUS.md)。反馈问题时请提供版本、Windows 版本及复现步骤，并对设备名、Tailnet IP 和日志脱敏；不要上传 `settings.json`。
 
 ## 许可与商标
 
